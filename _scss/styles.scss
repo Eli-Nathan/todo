@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', verdana, sans-serif, system;
+}
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px;
+}
+
+.close:hover {
+  background: #fd746c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(left, #ff9068, #fd746c);
+  background: -o-linear-gradient(left, #ff9068, #fd746c);
+  background: linear-gradient(to right, #ff9068, #fd746c);
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+/* Style the header */
+.header {
+  background: #fd746c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(left, #ff9068, #fd746c);
+  background: -o-linear-gradient(left, #ff9068, #fd746c);
+  background: linear-gradient(to right, #ff9068, #fd746c);
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Style the input */
+input {
+  border: none;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+// Define vars we'll be using
+$brand-success: #5cb85c;
+$loader-size: 2em;
+$check-height: $loader-size/2;
+$check-width: $check-height/2;
+$check-left: ($loader-size/6 + $loader-size/12);
+$check-thickness: 3px;
+$check-color: $brand-success;
+
+
+.checkmark {
+
+  &.draw:after {
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+  }
+
+  &:after {
+    opacity: 1;
+    height: $check-height;
+    width: $check-width;
+    transform-origin: left top;
+    border-right: $check-thickness solid $check-color;
+    border-top: $check-thickness solid $check-color;
+    content: '';
+    left: $check-left;
+    top: 26px;
+    position: absolute;
+  }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: $check-width;
+    opacity: 1;
+  }
+  40% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+  100% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+}
