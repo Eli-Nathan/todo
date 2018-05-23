@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+  sortThem();
   addClose();
   // Create a "close" button and append it to each list item
   function addClose() {
@@ -34,12 +35,11 @@ document.addEventListener("DOMContentLoaded", function() {
       addClose();
     }
   }, false);
-
-
   document.getElementById("add").addEventListener("click", function() {
     // Create a new list item when clicking on the "Add" button
     var li = document.createElement("li");
     var inputValue = document.getElementById("myInput").value;
+    //making sure it still is an array
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
@@ -73,4 +73,5 @@ document.addEventListener("DOMContentLoaded", function() {
       list.appendChild(itemsArr[i]);
     }
   }
+
 });
